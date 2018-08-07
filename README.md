@@ -1,4 +1,4 @@
-#Lombok简介及入门使用
+# Lombok简介及入门使用
 
 > [Lombok](https://projectlombok.org/) 是一种 Java实用工具，可用来帮助开发人员消除Java的冗长，尤其是对于简单的Java对象(POJO), 它通过注释实现这一目的。一个标准的Java bean 一般具有若干属性，每个属性具有getter()和setter()方法，Lombok中也用到了注解，但是它并没有用到反射，而是通过一些奇技淫巧，在代码编译时期动态将注解替换为具体的代码。所以JVM实际运行的代码，和我们手动编写的包含了各种工具方法的类相同。
 
@@ -35,9 +35,9 @@
 * @toString：创建toString方法。
 * @Cleanup: 用于流等可以不需要关闭使用流对象.
 
-##一些使用的例子
+## 一些使用的例子
 
-###普通的bean：
+### 普通的bean：
 
 		public class User {
 		    private String id;
@@ -68,7 +68,7 @@
 		        this.age = age;
 		    }
 		}
-###使用 lambok时
+### 使用lambok
 
 使用lombok，代码可以变得非常的简洁，看着也舒服。
 
@@ -87,7 +87,7 @@
         user.setAge(1);
     }
 
-##@Accessors(chain = true)：使用链式创建:
+## @Accessors(chain = true)：使用链式创建:
 
 	@Setter
 	@Getter
@@ -104,7 +104,7 @@
         userChain.setId("1").setName("chain").setAge(1);
     }
 
-##@Builder：使用builder模式创建对象
+## @Builder：使用builder模式创建对象
 
 	@Setter
 	@Getter
@@ -120,7 +120,7 @@
         System.out.println(user.getId());
     }
 
-##@UtilityClass：工具类注解
+## @UtilityClass：工具类注解
 
 	@UtilityClass
 	public class Utility {
@@ -135,9 +135,11 @@
         System.out.println(Utility.getName());
 
     }
-  ## @CleanUp: 清理流对象
 
-    @Cleanup
+## @CleanUp: 清理流对象
+
+@Cleanup
+
     OutputStream outStream = new FileOutputStream(new File("text.txt"));
     @Cleanup
     InputStream inStream = new FileInputStream(new File("text2.txt"));
